@@ -354,7 +354,6 @@ source make/smap/Config.in
 source make/sock/Config.in
 source make/sshguard/Config.in
 source make/sslcat/Config.in
-source make/sslh/Config.in
 source make/ssocks/Config.in
 source make/stund/Config.in
 source make/sudo/Config.in
