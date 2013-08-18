@@ -145,7 +145,6 @@ source make/arpd/external.in
 source make/arping/external.in
 source make/arpon/external.in
 source make/arpwatch/external.in
-source make/autossh/external.in
 source make/axel/external.in
 source make/bacnet4linux/external.in
 source make/bacnet-stack/external.in

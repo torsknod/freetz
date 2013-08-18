@@ -251,7 +251,6 @@ source make/arpd/Config.in
 source make/arping/Config.in
 source make/arpon/Config.in
 source make/arpwatch/Config.in
-source make/autossh/Config.in
 source make/axel/Config.in
 source make/bacnet4linux/Config.in
 source make/bacnet-stack/Config.in
