@@ -13,3 +13,10 @@ config FREETZ_PACKAGE_PSYBNC
 		other helpful functions are included. It compiles on Linux,
 		FreeBSD, SunOs and Solaris.
 		http://www.psybnc.at/index.html
+
+config FREETZ_PACKAGE_PSYBNC_STATIC
+	bool "Statically link libraries"
+	depends on FREETZ_PACKAGE_PSYBNC
+	default n
+	help
+		Build psybnc as a statically linked binary (no need of shared libraries).

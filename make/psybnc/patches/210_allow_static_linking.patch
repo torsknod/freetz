@@ -1,0 +1,19 @@
+--- makefile.out.old	2013-09-21 13:36:02.682625543 +0200
++++ makefile.out	2013-09-21 13:37:08.214626804 +0200
+@@ -1,14 +1,14 @@
+ CC	= 
+ SRC	= src/
+ CFLAGS  = 
+-LIBS	= -lm -ldl -lssl -lcrypto
++LIBS	= -lm -lssl -lcrypto -ldl
+ INCLUDE = -I./src/ -I.
+ OBJS	= src/psybnc.o src/match.o src/p_client.o src/p_crypt.o src/p_dcc.o src/p_hash.o src/p_idea.o src/p_inifunc.o src/p_link.o src/p_log.o src/p_memory.o src/p_network.o src/p_parse.o src/p_peer.o src/p_server.o src/p_socket.o src/p_string.o src/p_sysmsg.o src/p_userfile.o src/p_uchannel.o src/p_script.o src/p_topology.o src/p_intnet.o src/p_blowfish.o src/p_translate.o src/p_coredns.o src/snprintf.o 
+ DEFINE	= -DHAVE_CONFIG -DNOSYSTIME -DPSYBASE=/var/tmp/flash/psybnc
+ TARGET	= psybnc
+ 
+ all:	$(OBJS)
+-	$(CC) -o $(TARGET) $(CFLAGS) $(OBJS) $(LIBS)
++	$(CC) $(LDFLAGS) -o $(TARGET) $(CFLAGS) $(OBJS) $(LIBS)
+ 	#@echo "*** GENERATING SSL-KEYS FROM CERTIFICATE **"
+ 	#@echo "* You will be prompted for Cert-Contents  *"
+ 	#@echo "*  This Infos will be used only for SSL   *"
