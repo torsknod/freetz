@@ -1,7 +1,7 @@
 $(call PKG_INIT_BIN, 0.9.6)
-$(PKG)_SOURCE:=$(pkg)-$($(PKG)_VERSION).tar.gz
+$(PKG)_SOURCE:=$(pkg)-$($(PKG)_VERSION)-1.tar.gz
 $(PKG)_SOURCE_MD5:=c4eb8e282902e75f4f040f09ea9d99d5
-$(PKG)_SITE:=http://ftp.iptel.org/pub/$(pkg)/
+$(PKG)_SITE:=@SF/$(pkg).berlios
 $(PKG)_BINARIES:=$(pkg)
 $(PKG)_BINARIES_BUILD_DIR:=$($(PKG)_BINARIES:%=$($(PKG)_DIR)/%)
 $(PKG)_BINARIES_TARGET_DIR:=$($(PKG)_BINARIES:%=$($(PKG)_DEST_DIR)/usr/bin/%)
