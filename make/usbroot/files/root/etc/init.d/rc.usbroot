@@ -454,7 +454,7 @@ cleanup_on_failure() {
 get_fstype() {
 	# check if kernel modules are available
 	# or if filesystem support is already built-in and available
-	for i in ext2 ext3; do
+	for i in ext2 ext3 ext4; do
 		if [ -f "/lib/modules/$(uname -r)/kernel/fs/$i/$i.ko" ]; then
 			eval $i=y
 		elif [ -n "$(grep $i /proc/filesystems)" ]; then
@@ -470,13 +470,17 @@ get_fstype() {
 	fi
 
 	# result matrix (only handle some special cases, thread all other cases as ext2)
-	case "$ext2:$ext3:$mediafs" in
-		n:y:*)
+	case "$ext2:$ext3:$ext4:$mediafs" in
+		n:n:y:*)
+			FSTYPE="ext4" ;;		# only ext4 available
+		n:y:n:*)
 			FSTYPE="ext3" ;;		# only ext3 available
-		y:y:*)
-			FSTYPE=${mediafs:-ext2} ;;	# use fs type from media or ext2 as default
+		y:n:n:*)
+			FSTYPE="ext2" ;;		# only ext2 available
+		y:y:*:*|y:*:y:*|*:y:y:*)
+			FSTYPE=${mediafs:-ext4} ;;	# use fs type from media or ext4 as default
 		*)
-			FSTYPE="ext2" ;;		# defaults to ext2
+			FSTYPE="ext4" ;;		# defaults to ext4
 	esac
 
 	# user can force a fs type if kernel module is available
